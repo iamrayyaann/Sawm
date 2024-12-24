@@ -1,0 +1,114 @@
+/* Global Styling */
+* {
+    font-family: 'JetBrains Mono', monospace;
+    margin: 0;
+    padding: 0;
+}
+
+/* Viewport Setting */
+body, html {
+    height: 100%;
+}
+
+/* --------------- Pages Styling --------------- */
+
+/* Base Page */
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+/* Home Page */
+.homepage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Calendar Page */
+.calendarpage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ramadan Page */
+.ramadanpage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Settings Page */
+.settingspage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.settings-container {
+    display: flex;
+    flex-direction: column;
+}
+.setting-options {
+    width: 100%;
+    margin-top: 30px;
+}
+#saveButton {
+    background-color: #ef2332;
+    color: white;
+    border: none;
+    border-radius: 11px;
+    margin-top: 30px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+#saveButton:hover {
+    background-color: #ef2332;
+}
+
+
+/* --------------- Misc Styling --------------- */
+
+/* Header Page */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: rgba(25, 25, 25, 1);
+    color: white;
+    padding: 10px 10px;
+}
+header h1 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+header nav a:link, header nav a:visited {
+    color: rgba(255, 255, 255, 0.7);
+}
+header nav a:active, header nav a:hover {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Footer Page */
+footer {
+    padding: 1em;
+    text-align: center;
+}
+
+/* Link styling */
+a {
+    margin: 0 15px;
+}
+a:link, a:visited {
+    color: #3498DB;
+    text-decoration: none;
+}
+a:hover {
+    font-weight: bolder;
+}
