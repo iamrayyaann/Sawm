@@ -1,16 +1,31 @@
-from flask import render_template, current_app
+from flask import render_template, request, current_app
 from datetime import datetime
 import requests
 from . import main
 
 @main.route('/')
 def home():
-    current_date = datetime.now().strftime('%d-%m-%Y')
+    
+    # Get the IP Address of the user
+    ip_address = request.remote_addr
+    # ip_address = '8.8.8.8'
+    
+    # Get the City and Country of the user
+    response = requests.get(f'https://geolocation-db.com/json/{ip_address}&position=true')
+    print(response.json())  
+    ip_data = response.json()
+    city = ip_data.get('city', 'Unknown City')
+    country = ip_data.get('country_name', 'Unknown Country')
+    latitude = ip_data.get('latitude', 'N/A')
+    longitude = ip_data.get('longitude', 'N/A')
+    
     calc_method = '1'
-    city = 'Bangalore'
-    country = 'India'
+    
     try:
-        response = requests.get(f'https://api.aladhan.com/timingsByAddress/{current_date}?address={city},{country}&method={calc_method}')
+        # response = requests.get(f'https://api.aladhan.com/timingsByAddress/{current_date}?address={city},{country}&method={calc_method}')
+        # response_data = response.json()
+        
+        response = requests.get(f'https://api.aladhan.com/v1/timings?latitude={latitude}&longitude={longitude}&method={calc_method}')
         response_data = response.json()
 
         if response.status_code == 200 and response_data.get('data'):
